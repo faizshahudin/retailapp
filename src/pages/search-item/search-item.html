@@ -1,0 +1,48 @@
+<!--
+  Generated template for the SearchItemPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>SearchItem</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="addItem()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2>Item List</h2>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of items | async">
+      <ion-item >
+      <p>Barcode Number: {{item.barcodenumber}} </p>
+      <p>Name: {{item.name}} </p>
+      <p>Price: {{item.price}} </p>
+      <p>Category: {{item.category}}</p>
+    </ion-item>
+
+    <ion-item-options side="right">
+        <button ion-button color="secondary" (click)="editItem(item)">
+          <ion-icon name="md-create">Edit</ion-icon>
+        </button>
+    </ion-item-options>
+    <ion-item-options side="left">
+       <!-- <button ion-button color="danger" (click)="deleteItem(item.$key)">
+          <ion-icon name="md-trash">Delete</ion-icon>
+        </button> -->
+        <button ion-button color="primary" (click)="sellItem(item.$key)">
+          Sell Item
+        </button>
+    </ion-item-options>
+    </ion-item-sliding>
+    
+  </ion-list>
+</ion-content>
